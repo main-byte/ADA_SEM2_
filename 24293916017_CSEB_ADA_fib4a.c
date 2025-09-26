@@ -23,7 +23,7 @@ int main(int argc, char* argv[]){
 
     // scanf("enter no of terms you want to print.\n",&NOfTerms);
     clock_t start,end;  
-    double time_taken_ms;
+    long double time_taken_ms;
 
     int i = 1;
     start = clock();
@@ -33,8 +33,8 @@ int main(int argc, char* argv[]){
 
     }
     end = clock();
-    time_taken_ms = (end - start)/CLOCKS_PER_SEC *1000 ; 
-    printf("\ntime taken = @%lf\n", time_taken_ms);
+    time_taken_ms = ((end - start)*1000000)/CLOCKS_PER_SEC; 
+    printf("\ntime taken in 10^-6 s= @%Lf\n", time_taken_ms);
 
     
 
