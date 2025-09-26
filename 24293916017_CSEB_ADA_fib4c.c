@@ -22,16 +22,21 @@ int main(int argc, char* argv[]){
 
 int index = 0 ; //tells no of elements in fib array 
 int* indexPtr = &index; 
-
+//allocatation for array
 long* ptr = (long*)malloc(NOfTerms * sizeof(long));
+ if (ptr == NULL) {
+        return -1;
+    }
 clock_t start, end;
 long double time_taken_ms;
 
 int i = 1;
     start = clock();
     while(i <= NOfTerms){
-        printf("%ld, ",fibo(NOfTerms,ptr,indexPtr,NOfTerms) );
+        printf("%ld, ",fibo(i,ptr,indexPtr,NOfTerms) );
         i++;
+        index = 0;
+
 
     }
     end = clock();
@@ -43,8 +48,9 @@ int i = 1;
 
 
 
-free(indexPtr);
+
 free(ptr);
+return 0;
 }
 
 
@@ -65,6 +71,7 @@ long fibo(int n,long* fib,int* indexPtr,int nfirst){
             else{
                 *indexPtr+=1; 
                 fib[k] = fibo(n-1,fib,indexPtr,nfirst) + fibo(n-2,fib,indexPtr,nfirst);
+                
                 return fib[k];      
             }
        
