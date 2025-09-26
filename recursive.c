@@ -34,7 +34,7 @@ int main(int argc, char* argv[]){
     }
     end = clock();
     time_taken_ms = (end - start)/CLOCKS_PER_SEC *1000 ; 
-    printf("\ntime taken = @%lf", time_taken_ms);
+    printf("\ntime taken = @%lf\n", time_taken_ms);
 
     
 
