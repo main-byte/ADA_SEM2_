@@ -1,9 +1,9 @@
 #include <stdio.h>
-// #include <stdlib.h>
+#include <stdlib.h>
 #include <time.h>
 #include <stdbool.h>
 
-
+long fibo(int n,long* fib,int* indexPtr,int nfirst);
 
 int main(int argc, char* argv[]){
     int NOfTerms = atoi(argv[1]); 
@@ -30,7 +30,7 @@ long double time_taken_ms;
 int i = 1;
     start = clock();
     while(i <= NOfTerms){
-        printf("%ld, ",fib(NOfTerms,ptr,indexPtr,NOfTerms) );
+        printf("%ld, ",fibo(NOfTerms,ptr,indexPtr,NOfTerms) );
         i++;
 
     }
@@ -48,7 +48,7 @@ free(ptr);
 }
 
 
-long fib(int n,int* fib,int* indexPtr,int nfirst){
+long fibo(int n,long* fib,int* indexPtr,int nfirst){
     int k = *indexPtr;
     int i = 0;
     switch(n){
@@ -60,12 +60,12 @@ long fib(int n,int* fib,int* indexPtr,int nfirst){
     //check and add  in fib array.
         
             if (k+2 == nfirst){
-                return *fib[n-1] ;
+                return fib[n-1] ;
             }
             else{
                 *indexPtr+=1; 
-                *fib[k] = fib(n-1,int* fib,int* indexPtr,int nfirst) + fib(n-2,int* fib,int* indexPtr,int nfirst);
-                return *fib[k];      
+                fib[k] = fibo(n-1,fib,indexPtr,nfirst) + fibo(n-2,fib,indexPtr,nfirst);
+                return fib[k];      
             }
        
     }
