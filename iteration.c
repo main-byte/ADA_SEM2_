@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <stdbool.h>
+
+int main(int argc, char* argv[]){
+    int NOfTerms = atoi(argv[1]); 
+    printf("NOfTerms:%d\n",NOfTerms);
+    //check if  inputis not less than 1.
+    bool check = false;
+    while(check == false){
+        if (NOfTerms < 1) {
+            check = false;
+            printf("enter valid value for no of terms!!.\n");
+            scanf("enter no of terms you want to print: %d\n",&NOfTerms);
+        }
+        else{check = true;}
+    }
+
+    clock_t start, end;
+    double time_taken_ms;
+
+    
+}
