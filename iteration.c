@@ -10,7 +10,7 @@ int main(int argc, char* argv[]){
     bool check = false;
     while(check == false){
         if (NOfTerms < 1) {
-            check = false;
+            
             printf("enter valid value for no of terms!!.\n");
             scanf("enter no of terms you want to print: %d\n",&NOfTerms);
         }
