@@ -30,22 +30,22 @@ long* ptr = (long*)malloc(NOfTerms * sizeof(long));
 clock_t start, end;
 long double time_taken_ms;
 
-int i = 1;
+int i = NOfTerms;
+
+long printarr[NOfTerms];
+
     start = clock();
-    while(i <= NOfTerms){
-        printf("%ld, ",fibo(i,ptr,indexPtr,NOfTerms) );
-        i++;
-        index = 0;
+    while(1 <= i){
 
-
-    }
+        printarr[i-1]=fibo(i,ptr,indexPtr,NOfTerms) ;
+        i--;
+     }
     end = clock();
     time_taken_ms = ((end - start)*1000000)/CLOCKS_PER_SEC; 
     printf("\ntime taken in 10^-6 s= @%Lf\n", time_taken_ms);
-
-
-
-
+    for(i=1;i<=NOfTerms;i++){
+        printf("%ld, ",printarr[i-1]);
+    }
 
 
 
